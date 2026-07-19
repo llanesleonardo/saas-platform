@@ -3,7 +3,7 @@
  * Reusable multi-tenant SaaS chassis (product-agnostic).
  */
 export const PLATFORM_PACKAGE_NAME = "@llanesleonardo/saas-platform";
-export const PLATFORM_PACKAGE_VERSION = "0.2.0";
+export const PLATFORM_PACKAGE_VERSION = "0.2.1";
 
 export * from "./contracts";
 export * from "./config";

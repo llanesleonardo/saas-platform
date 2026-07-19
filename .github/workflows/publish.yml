@@ -27,8 +27,14 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Boundaries
+        run: npm run check:boundaries
+
       - name: Typecheck and build
         run: npm run typecheck && npm run build
+
+      - name: Smoke
+        run: npx tsx src/smoke.ts
 
       - name: Inspect tarball
         run: npm pack --dry-run
