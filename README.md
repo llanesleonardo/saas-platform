@@ -1,10 +1,30 @@
 # `@llanesleonardo/saas-platform`
 
-Reusable multi-tenant SaaS platform extracted from PeopleForms (Epic 11).
+Reusable multi-tenant **SaaS chassis** (private GitHub Package). Product-agnostic.
 
-## Stages
+## Exports (`0.2.0`)
 
-1. **npm workspaces** — consumed as `0.1.0` via workspace link in this monorepo.
-2. **GitHub Packages** — published from a private repo after phase 69 gates pass.
+| Export | Purpose |
+|--------|---------|
+| `.` / `./contracts` | Types (users, workspaces, jobs, keys, PlanSnapshot) |
+| `./core` | Registries + `evaluateFeature` / `evaluateQuota` + job handlers |
+| `./db` | `PlatformDatabaseAdapter` port + `createMemoryPlatformAdapter` |
+| `./server` | Worker loop, API-key scope helpers, tenancy helpers |
 
-See `docs/Epic-11/` in the PeopleForms monorepo for requirements and learning guides.
+## Boot pattern (any product)
+
+```ts
+import { setPlatformConfig, registerApiKeyScopes, registerFeatures } from "@llanesleonardo/saas-platform";
+
+setPlatformConfig({ productName: "AcmeCRM", apiKeyPrefix: "acme_" });
+registerApiKeyScopes(["contacts:read"]);
+registerFeatures(["pipelines"]);
+```
+
+## Hard rules
+
+No form/CRM types, no `@/` aliases, no Next in `contracts`/`core`.
+
+## Publish
+
+Tag `vX.Y.Z` matching `package.json` version.
