@@ -1,0 +1,4 @@
+# Copy guidance for the private platform repo (do not commit tokens).
+@llanesleonardo:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+always-auth=true
