@@ -420,7 +420,8 @@ export function createMemoryPlatformAdapter(options?: {
           period,
           metrics: {},
         } satisfies UsageCounterRecord);
-      const metrics = { ...cur.metrics, [field]: (cur.metrics[field] ?? 0) + by };
+      const prev = cur.metrics ?? {};
+      const metrics = { ...prev, [field]: (prev[field] ?? 0) + by };
       usage.set(key, { ...cur, metrics });
     },
 

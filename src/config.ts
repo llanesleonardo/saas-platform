@@ -3,9 +3,9 @@
  */
 
 export interface PlatformConfig {
-  /** Display / audit product name (e.g. "PeopleForms", "AcmeCRM"). */
+  /** Display / audit product name (e.g. "AcmeCRM"). */
   productName: string;
-  /** API key plaintext prefix (e.g. "pf_", "acme_"). */
+  /** API key plaintext prefix (e.g. "acme_"). */
   apiKeyPrefix: string;
   supportEmail?: string;
   /** Cookie name for active workspace; optional until ./next helpers exist. */
