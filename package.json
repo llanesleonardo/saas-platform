@@ -1,7 +1,7 @@
 {
   "name": "@llanesleonardo/saas-platform",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "Reusable multi-tenant SaaS platform (auth, workspaces, billing primitives, jobs)",
   "type": "module",
   "main": "./src/index.ts",
