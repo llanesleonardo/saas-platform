@@ -1,8 +1,8 @@
 {
   "name": "@llanesleonardo/saas-platform",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "private": false,
-  "description": "Reusable multi-tenant SaaS platform (auth, workspaces, billing primitives, jobs)",
+  "description": "Reusable multi-tenant SaaS platform (auth, workspaces, billing, jobs, storage, secrets, rate-limit, logging)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,6 +26,26 @@
     "./server": {
       "types": "./dist/server.d.ts",
       "import": "./dist/server.js"
+    },
+    "./logging": {
+      "types": "./dist/logging/index.d.ts",
+      "import": "./dist/logging/index.js"
+    },
+    "./secrets": {
+      "types": "./dist/secrets/index.d.ts",
+      "import": "./dist/secrets/index.js"
+    },
+    "./rate-limit": {
+      "types": "./dist/rate-limit.d.ts",
+      "import": "./dist/rate-limit.js"
+    },
+    "./storage": {
+      "types": "./dist/storage/index.d.ts",
+      "import": "./dist/storage/index.js"
+    },
+    "./security": {
+      "types": "./dist/security/index.d.ts",
+      "import": "./dist/security/index.js"
     }
   },
   "files": [
@@ -50,12 +70,16 @@
     "access": "restricted"
   },
   "peerDependencies": {
-    "next": ">=16.0.0"
+    "next": ">=16.0.0",
+    "@azure/storage-blob": ">=12.0.0",
+    "@azure/identity": ">=4.0.0",
+    "@aws-sdk/client-s3": ">=3.0.0"
   },
   "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    }
+    "next": { "optional": true },
+    "@azure/storage-blob": { "optional": true },
+    "@azure/identity": { "optional": true },
+    "@aws-sdk/client-s3": { "optional": true }
   },
   "devDependencies": {
     "@types/node": "^20",
