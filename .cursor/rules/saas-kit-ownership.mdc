@@ -1,0 +1,20 @@
+---
+description: Platform chassis ownership — no product domain; ask before breaking consumer APIs
+alwaysApply: true
+---
+
+# saas-platform: chassis only
+
+This package is the **lower-level chassis** (contracts, DB port, entitlements, infra). It is not login UI, nav, or billing pages.
+
+## Ask / recommend first before
+
+- Breaking `PlatformDatabaseAdapter` or published contract shapes
+- Removing tenancy/entitlement helpers consumers rely on
+
+## Do not
+
+- Put product domain (forms, CRM entities, PeopleForms types) here
+- Add React app chrome here (that belongs in `saas-product-shell/ui`)
+
+Product UI and dual-mode pages live in shell + `create-saas` templates.
